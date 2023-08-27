@@ -1,9 +1,11 @@
-const { Pool } = require('pg');
+const { mysql } = require('mysql');
 
-const pool = new Pool({
-  user: 'Luis',
-  password: '9090',
+const conection = mysql.createConnection({
   host: 'localhost',
-  database: 'services_control',
-  port: 5432, 
+  port: 3336,
+  user: 'root',
+  password: "",
+  database: "services_control"
 });
+
+module.exports = conection;
