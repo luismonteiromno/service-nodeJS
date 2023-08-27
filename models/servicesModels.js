@@ -33,7 +33,21 @@ class servicesModels {
         return new Promise((resolve, reject) => {
             conection.query(sql, [updateService, id], (error, response) => {
                 if (error){
-                    console.log(`Error ${error} na criação`);
+                    console.log(`Error ${error} na atualização`);
+                    reject(error);
+                }
+                console.log("Sucesso");
+                resolve(response);
+            })
+        })
+    }
+
+    delete(id) {
+        const sql = "DELETE FROM services WHERE id = ?";
+        return new Promise((resolve, reject) => {
+            conection.query(sql, id, (error, response) => {
+                if (error){
+                    console.log(`Error ${error} na hora de deletar`);
                     reject(error);
                 }
                 console.log("Sucesso");
