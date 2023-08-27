@@ -22,14 +22,16 @@ router.put('/service/:id', (req, res) => {
     const serviceUpdate = req.body;
     const update = servicesControler.update(serviceUpdate, id);
     update
-        .then((resultServices) => res.status(201).json(resultServices))
+        .then((resultService) => res.status(200).json(resultService))
         .catch((error) => res.status(400).json(error.message));
 });
 
-router.get('/service/:id', (req, res) => {
+router.delete('/service/:id', (req, res) => {
     const { id } = req.params;
-    const response = servicesControler.delete(id);
-    res.send(response);
+    const deleteService = servicesControler.delete(id);
+    deleteService
+        .then((deleteService) => res.status(200).json(deleteService))
+        .catch((error) => res.status(400).json(error.message));
 });
 
 module.exports = router;
