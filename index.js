@@ -1,14 +1,9 @@
 const express = require("express");
 const app = express();
 const port = 3000;
-const router = require("./routers/index");
-const conection = require("./database/data");
-const tables = require("./database/tables");
+const appConfig = require("./config/appConfig");
 
-
-router(app, express);
-tables.init(conection);
-
+appConfig(app, express);
 
 app.listen(port, (error) => {
     if(error){
