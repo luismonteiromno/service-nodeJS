@@ -10,7 +10,7 @@ class ServicesControler {
         return servicesModels.update(updateService, id);
     }
     delete(id) {
-        return `Atendimento ${id} deletado`;
+        return servicesModels.delete(id);
     }
 }
 
